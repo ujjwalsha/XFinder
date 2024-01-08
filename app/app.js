@@ -1,6 +1,7 @@
 let searchBar = document.getElementById('search');
 let content = document.getElementById('main');
 let item = document.getElementById('search-item');
+let loader = document.querySelector('.loader');
 
 
 async function profileData(users){
@@ -32,8 +33,8 @@ catch(err){
 	// console.log("profile name", owner.followers_count);
 	// console.log("photo", owner.profile_image_url_https);
 	// }
-
-
+loader.style.display = "none";
+// content.style.display = "none";
 	
 }
 
@@ -87,6 +88,8 @@ function createCard(user, ownerExtra){
 
 
 searchBar.addEventListener("submit", (e) =>{
+	loader.style.display = "inline-block";
+
 	e.preventDefault();
 
 	let user = item.value;
@@ -96,8 +99,8 @@ searchBar.addEventListener("submit", (e) =>{
 
 		item.value = '';
 	}
-});
 
+});
 
 
 
